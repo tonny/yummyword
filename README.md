@@ -34,5 +34,8 @@ Execute the following commands in your terminal o console.
 After executed these commands, you needs to open the following file
 platfoms/ios/yummyword.xcodeproj in your xcode, then run the project through xcode.
 
-1. ionic serve --labs
+#### Run in browser
+With the following command you can execute the project without installing in android or iphone device.
+
+1. ionic serve --lab
 
