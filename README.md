@@ -1,6 +1,13 @@
 # yummyword
 Mobile app to help people to improve their English vocabulary through small games that is generated from words saved by user.
 
+## Description
+This project was implemented with the following technologies:
+
+1. [ionic](http://ionicframework.com/)
+2. [firebase](https://www.firebase.com/)
+3. [threejs](http://threejs.org/)
+
 ## Author
   - Antonio Mamani - antonio.mq@gmail.com
 
