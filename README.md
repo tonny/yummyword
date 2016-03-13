@@ -19,6 +19,7 @@ You needs to do the following instructions to run the mobile app  in your androi
 
 #### Run android project
 Execute the following commands in your terminal o console.
+
 1. ionic platform add android
 2. ionic state reset
 3. ionic build android
