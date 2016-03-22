@@ -5,27 +5,38 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-
     <!-- compiled css output -->
-    <link href="css/ionic.app.css" rel="stylesheet">
+	<link href="css/ionic.app.css" rel="stylesheet">
+	<link href="lib/angular-material/angular-material.min.css" rel="stylesheet">
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+	<!-- Firebase -->
+	<script src="lib/firebase/firebase.js"></script>
+	<!-- AngularFire -->
+	<script src="https://cdn.firebase.com/libs/angularfire/1.1.4/angularfire.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
-    <script src="js/app.js"></script>
-  </head>
-  <body ng-app="starter">
+	<script src="js/app.js"></script>
+	<script src="js/services.js"></script>
 
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content>
-      </ion-content>
-    </ion-pane>
+	<!-- import controllers -->
+	<script src="js/controller/loginController.js"></script>
+	<script src="js/controller/homeController.js"></script>
+
+	<!-- angular material -->
+	<script src="lib/angular-animate/angular-animate.js"></script>
+	<script src="lib/angular-aria/angular-aria.js"></script>
+	<script src="lib/angular-messages/angular-messages.js"></script>
+	<script src="lib/angular-material/angular-material.js"></script>
+
+  </head>
+  <body ng-app="yummyword">
+	<ion-nav-bar></ion-nav-bar>
+	<ion-nav-view></ion-nav-view>
   </body>
 </html>
