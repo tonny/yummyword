@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 angular.module('yummyword', ['ionic','firebase','ngMaterial','yummyword.services',
-			   'yummyword.loginController','yummyword.homeController'])
+			   'yummyword.loginController','yummyword.homeController','yummyword.searchController'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -29,7 +29,7 @@ angular.module('yummyword', ['ionic','firebase','ngMaterial','yummyword.services
 {
 	$mdThemingProvider.theme('default')
 		.primaryPalette('light-blue')
-		.accentPalette('teal')
+		.accentPalette('blue')
 		.warnPalette('red');
 
 	$stateProvider

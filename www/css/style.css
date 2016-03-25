@@ -1,1 +1,23 @@
 /* Empty. Add your own CSS if you like */
+.back-color{
+	background-color:#5ceaf9 !important;
+}
+
+.button-register-login{
+	width:50%;
+/*	background-color:white; */
+	margin: 0 auto;
+}
+
+.button-register{
+	color : black !important;
+}
+
+.logo-container{
+	height: 32%;
+}
+
+.logo{
+	width: auto;
+	max-height: 100% !important;
+}

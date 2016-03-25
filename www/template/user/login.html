@@ -1,7 +1,10 @@
-<ion-view hide-nav-bar="true">
-	<ion-content>
-		<md-content class="autoScroll" layout-padding>
-			<form>
+<ion-view hide-nav-bar="true" class="back-color">
+	<ion-content class="back-color">
+		<div class="logo-container">
+			<img src="img/gumols/gumol_login.svg" class="logo">
+		</div>
+		<md-content class="autoScroll back-color" layout-padding>
+			<form name="loginForm" ng-submit="login()">
 				<md-input-container class="md-icon-float md-block">
 					<!-- Use floating label instead of placeholder -->
 					<md-icon md-svg-src="img/assets/icon_person_login.svg" class="name"></md-icon>
@@ -12,10 +15,12 @@
 					<md-icon md-svg-src="img/assets/icon_pass_login.svg" class="password"></md-icon>
 					<input ng-model="user.password" type="password" placeholder="Password" ng-required="true">
 				</md-input-container>
-				<md-button class="md-raised button-block">Login</md-button>
+				<md-button class="md-raised button-block" type="submit">Login</md-button>
 			</form>
-		<md-content>
-			<md-button class="button button-block icon-right md-primary ion-social-facebook md-raised ">Sing in with facebook</md-button>
+		</md-content>
+		<div class="button-register-login">
+			<button class="button button-clear button-full icon-right ion-social-facebook button-register">Enter with facebook</button>
+		</div>
 
 		<!--
 		<h3>Page 1</h3>

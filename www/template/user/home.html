@@ -1,5 +1,11 @@
-<ion-view view-title="Title">
-	<ion-content>
+<ion-view  class="back-color">
+	<div class="bar bar-header item-input-inset back-color">
+		<label class="item-input-wrapper">
+			<i class="icon ion-ios-search placeholder-icon"></i>
+			<input type="search" ng-focus="goSearch()" placeholder="Search">
+		</label>
+	</div>
+	<ion-content class="has-header">
 		<h3>Page 2</h3>
 		<button class="button button-dark" ui-sref="login">
 			Navigate to Page 1

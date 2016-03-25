@@ -1,7 +1,18 @@
 angular.module('yummyword.loginController',[])
 
 .controller('LoginController',function($scope,$state,Auth){
-	console.log("Entra al login");
+
+	//#5ceaf9
+	//rgb(92,234,2249)
+	//User to loging
+	$scope.user = {};
+
+	$scope.login = function(){
+		$state.go('home');
+	};
+
+	// TODO use auto by facebook
+	/*
 	$scope.login = function() {
 		Auth.$authWithOAuthRedirect("facebook").then(function(authData) {
 			// User successfully logged in
@@ -20,7 +31,7 @@ angular.module('yummyword.loginController',[])
 			}
 		});
 	};
-
+	*/
 	Auth.$onAuth(function(authData) {
 		if (authData === null) {
 			console.log("Not logged in yet");
