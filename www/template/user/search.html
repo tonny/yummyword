@@ -1,12 +1,48 @@
 <ion-view  class="back-color">
-	<div class="bar bar-header item-input-inset back-color">
-		<label class="item-input-wrapper">
-			<i class="icon ion-ios-search placeholder-icon"></i>
-			<input type="search" placeholder="Search">
-		</label>
-	</div>
-	<ion-content class="has-header">
-		<h1>Lista de palabras header</h1>
-		<p>Lista de palabras</p>
-	</ion-content>
+    <div class="bar bar-header item-input-inset back-color">
+        <button class="button button-icon icon ion-chevron-left" ng-click="goBack()"></button>
+        <label class="item-input-wrapper">
+            <!--	<i class="icon ion-ios-search placeholder-icon"></i> -->
+            <input type="search" ng-model="user.word" autofocus placeholder="Search a single word">
+        </label>
+        <button class="button button-icon icon ion-search" ng-click="searchWord()"></button>
+    </div>
+    <ion-content class="has-header">
+
+        <md-list>
+            <md-list-item class="md-3-line" ng-repeat="def in user.definition"> 
+                <div class="md-list-item-text">
+                    <h4>{{def.word}} - {{def.partOfSpeech}}</h4>
+                    <!-- <h4>{{def.partOfSpeech}}</h4> -->
+                    <!-- <h6>{{def.attributionText}}</h6> -->
+                    <p>{{def.text}}</p>
+                </div>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+        </md-list>
+    </ion-content>
+    <div class="lock-size" layout="row" layout-align="center center">
+
+        <md-fab-speed-dial md-open="config.isOpen" md-direction="{{config.selectedDirection}}"
+             class="md-fab-bottom-right" ng-class="config.selectedMode">
+            <md-fab-trigger>
+                <md-button aria-label="menu" class="md-fab md-warn" ng-click="saveWord()">
+                    <md-icon md-svg-src="img/assets/icon_save_content.svg"></md-icon>
+                </md-button>
+            </md-fab-trigger>
+            <!--
+            <md-fab-actions>
+                <md-button aria-label="Twitter" class="md-fab md-raised md-mini">
+                    <md-icon md-svg-src="img/icons/twitter.svg" aria-label="Twitter"></md-icon>
+                </md-button>
+                <md-button aria-label="Facebook" class="md-fab md-raised md-mini">
+                    <md-icon md-svg-src="img/icons/facebook.svg" aria-label="Facebook"></md-icon>
+                </md-button>
+                <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini">
+                    <md-icon md-svg-src="img/icons/hangout.svg" aria-label="Google Hangout"></md-icon>
+                </md-button>
+            </md-fab-actions>
+            -->
+        </md-fab-speed-dial>
+    </div>
 </ion-view>

@@ -25,13 +25,17 @@ angular.module('yummyword', ['ionic','firebase','ngMaterial','yummyword.services
 })
 
 .config(function($stateProvider,$urlRouterProvider,$ionicConfigProvider,$httpProvider,
-				 $mdThemingProvider)
+				 $mdThemingProvider, $mdGestureProvider)
 {
 	$mdThemingProvider.theme('default')
 		.primaryPalette('light-blue')
 		.accentPalette('blue')
 		.warnPalette('red');
 
+    // config double-click
+    $mdGestureProvider.skipClickHijack();
+
+    // config urls
 	$stateProvider
 
 		.state('login',{
