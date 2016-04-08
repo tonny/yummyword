@@ -4,7 +4,7 @@
 }
 
 .button-register-login{
-	width:50%;
+	width:60%;
 /*	background-color:white; */
 	margin: 0 auto;
 }
@@ -14,10 +14,45 @@
 }
 
 .logo-container{
+	margin : 0 auto;
+	width : 60%;
 	height: 32%;
 }
 
 .logo{
 	width: auto;
-	max-height: 100% !important;
+	height: 200px;
+}
+
+.home-button{
+	width: 100%;
+	height: auto;
+}
+
+.button-border{
+    background-color: rgba(0, 0, 255, 0.3);
+	color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-align: center;
+}
+
+.button-gumol{
+	color: white;
+	position : absolute;
+	text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+	text-align: center;
+	width:100%;
+}
+
+.button-title{
+	position: relative;
+	top : -50px;
+	z-index: 51;
+}
+
+.container {
+    width:  100%;
+    height: 100%;
+    background-color: #ddd;
 }

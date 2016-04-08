@@ -6,9 +6,36 @@
 		</label>
 	</div>
 	<ion-content class="has-header">
-		<h3>Page 2</h3>
+		<!--
 		<button class="button button-dark" ui-sref="login">
-			Navigate to Page 1
+			Go home
+    	</button>
+		<button class="button button-dark" ui-sref="game">
+			Go game
 		</button>
+		-->
+		<div class="button-gumol" ui-sref="game">
+			<img src="img/gumols/gumol_home.svg">
+			<span class="button-title">Improve your vocabulary</span>
+		</div>
 	</ion-content>
+
+	<!-- align to the bottom of the page -->
+	<div style="position: absolute; bottom: 0px; width: 100%">
+		<div class="row row-bottom">
+			<div class="col button-border">
+				<img src="img/gumols/gumol_my_words_home.png" class="home-button">
+				Words
+			</div>
+			<div class="col col-50 button-border">
+				<img src="img/gumols/gumol_vs_home.png" class="home-button">
+				V.S.
+			</div>
+			<div class="col button-border">
+				<img src="img/gumols/gumol_practis_home.png" class="home-button">
+				Shoping
+			</div>
+		</div>
+	</div>
+
 </ion-view>

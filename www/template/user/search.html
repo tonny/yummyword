@@ -1,9 +1,9 @@
 <ion-view  class="back-color">
     <div class="bar bar-header item-input-inset back-color">
         <button class="button button-icon icon ion-chevron-left" ng-click="goBack()"></button>
-        <label class="item-input-wrapper">
+        <label class="item-input-wrapper" focus-me>
             <!--	<i class="icon ion-ios-search placeholder-icon"></i> -->
-            <input type="search" ng-model="user.word" autofocus placeholder="Search a single word">
+            <input type="search" ng-model="user.word" placeholder="Search a single word">
         </label>
         <button class="button button-icon icon ion-search" ng-click="searchWord()"></button>
     </div>

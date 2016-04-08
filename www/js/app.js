@@ -4,7 +4,8 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 angular.module('yummyword', ['ionic','firebase','ngMaterial','yummyword.services',
-			   'yummyword.loginController','yummyword.homeController','yummyword.searchController'])
+			   'yummyword.loginController','yummyword.homeController','yummyword.directives',
+               'yummyword.searchController','yummyword.gameController'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -61,6 +62,12 @@ angular.module('yummyword', ['ionic','firebase','ngMaterial','yummyword.services
 			templateUrl : 'template/user/search.html',
 			controller : 'SearchController'
 		})
+
+        .state('game',{
+            url : '/game',
+            templateUrl : 'template/user/game.html',
+            controller : 'GameController'
+        })
 
 		;
 

@@ -1,7 +1,7 @@
 <ion-view hide-nav-bar="true" class="back-color">
 	<ion-content class="back-color">
 		<div class="logo-container">
-			<img src="img/gumols/gumol_login.svg" class="logo">
+			<img src="img/gumols/gumol_login.png" class="logo">
 		</div>
 		<md-content class="autoScroll back-color" layout-padding>
 			<form name="loginForm" ng-submit="login()">
@@ -19,8 +19,10 @@
 			</form>
 		</md-content>
 		<div class="button-register-login">
-			<button class="button button-clear button-full icon-right ion-social-facebook button-register">Enter with facebook</button>
-		</div>
+			<button class="button button-clear button-full icon-right ion-social-facebook button-register" ng-click="loginFacebook()">Enter with facebook</button>
+        </div>
+
+        <button ng-click="logout()" >  Logout </button>
 
 		<!--
 		<h3>Page 1</h3>
