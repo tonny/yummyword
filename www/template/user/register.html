@@ -1,0 +1,98 @@
+<ion-view view-title="Create account" id="register">
+	<ion-nav-bar align-title="center"  class="bar bar-header bar-assertive cabecera">
+		<ion-nav-back-button class="button-icon button-clear ion-chevron-left">
+		</ion-nav-back-button>
+	</ion-nav-bar>
+	<ion-content  class="has-header">
+		<md-content layout-padding>
+			<form name="registerForm" ng-submit="register()">
+
+				<md-input-container class="md-block">
+					<!--<label>First name</label>-->
+					<input type="text" name="name" ng-model="user.firstName" pattern="[A-Za-záéíóúÁÉÍÓÚ]*" required placeholder="First Name">
+					<div ng-messages="registerForm.name.$error">
+						<div ng-message="required">
+							Your first name is required.
+						</div>
+					</div>
+				</md-input-container>
+
+				<md-input-container class="md-block">
+					<!--<label>Last Name</label>-->
+					<input type="text" name="lastName" ng-model="user.lastName" pattern="[A-Za-záéíóúÁÉÍÓÚ]*" required placeholder="Last Name" >
+					<div ng-messages="registerForm.lastName.$error">
+						<div ng-message="required">
+							Your last name is required.
+						</div>
+					</div>
+				</md-input-container>
+
+				<md-input-container class="md-block">
+					<!--<label>Email</label>-->
+					<input name="mail" type="email" ng-model="user.email" required  placeholder="Email">
+					<div ng-messages="registerForm.mail.$error">
+						<div ng-message="required">
+							Your email is required.
+						</div>
+					</div>
+				</md-input-container>
+
+				<div layout-xs="row">
+					<md-radio-group ng-model="user.sexo" required>
+						<md-radio-button value="1"><span>Male</span></md-radio-button>
+						<md-radio-button value="0"><span>Femele</span></md-radio-button>
+					</md-radio-group>
+
+					<md-datepicker ng-model="user.birthday" md-placeholder="birthday"
+						md-min-date="minDate" md-max-date="maxDate" required>
+					</md-datepicker>
+				</div>
+
+				<div layout-xs="row">
+					<md-input-container>
+						<label>Country</label>
+						<md-select ng-model="user.country" ng-change="updateCities(user.country)" required >
+							<md-option ng-repeat="country in countries"  value="{{country}}">
+								{{country.name}}
+							</md-option>
+						</md-select>
+					</md-input-container>
+
+					<md-input-container>
+						<label>City</label>
+						<md-select ng-model="user.city" ng-disabled="!user.country" required>
+							<md-option ng-repeat="city in cities" value="{{city}}">
+								{{city}}
+							</md-option>
+						</md-select>
+					</md-input-container>
+				</div>
+
+				<md-input-container class="md-block">
+				 <!--	<label>Password</label> -->
+					<input type="password" required name="password1" placeholder="Password" ng-model="user.password1">
+					<div ng-messages="registerForm.password1.$error">
+						<div ng-message="required">
+							Password is required.
+						</div>
+					</div>
+				</md-input-container>
+
+				<md-input-container class="md-block">
+					<!-- <label>Confirm Password</label> -->
+					<input type="password" required name="password2" placeholder="Confirm Password" ng-model="user.password2">
+					<div ng-messages="registerForm.password2.$error">
+						<div ng-message="required">
+							Password is required.
+						</div>
+					</div>
+				</md-input-container>
+
+				<button id="register-button" class="button button-assertive" type="submit">
+					<span>Create Account</span>
+				</button>
+
+			</form>
+		</md-content>
+	</ion-content>
+</ion-view>
