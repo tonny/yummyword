@@ -1,8 +1,20 @@
 angular.module('yummyword.searchController',[])
 
 .controller('SearchController',function($scope,$state,Auth,Dictionary,$ionicLoading,
-										$ionicPopup,$http,$ionicHistory){
+										$ionicPopup,$http,$ionicHistory,Words){
     $scope.user = {};
+
+    console.log("======= enter with register =========");
+	Auth.$onAuth(function(authData) {
+		if (authData === null) {
+			console.log("Not logged in yet");
+		} else {
+			console.log("Logged in as", authData.uid);
+			console.log(authData);
+        	$scope.authData = authData; // This will display the user's name in our view
+		}
+	});
+
 
 	$scope.goBack = function(){
 		console.log("back");
@@ -56,6 +68,15 @@ angular.module('yummyword.searchController',[])
 	};
 	$scope.saveWord = function(){
 		if($scope.user.word !== "" && $scope.user.word !== undefined){
+            console.log("Trying to connect");
+            console.log(Words);
+
+            Words.$add({
+                user: $scope.authData.uid,
+                word: $scope.user.word,
+                definition: $scope.user.definition,
+                timestamp: Firebase.ServerValue.TIMESTAMP
+            });
 			console.log("save a word");
 		}
 	};

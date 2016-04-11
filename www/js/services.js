@@ -1,8 +1,14 @@
 angular.module('yummyword.services',[])
 
 .factory("Auth", function($firebaseAuth) {
-	var usersRef = new Firebase("https//gumwords.firebaseio.com/users");
+//	var usersRef = new Firebase("https//yummyword.firebaseio.com/users");
+	var usersRef = new Firebase("https//yummyword.firebaseio.com");
 	return $firebaseAuth(usersRef);
+})
+
+.factory("Words", function($firebaseArray) {
+    var wordsRef = new Firebase("https://yummyword.firebaseio.com/words");
+    return $firebaseArray(wordsRef);
 })
 
 .factory("Dictionary",function(){
