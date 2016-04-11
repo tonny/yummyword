@@ -8,7 +8,7 @@
 				<md-input-container class="md-icon-float md-block">
 					<!-- Use floating label instead of placeholder -->
 					<md-icon md-svg-src="img/assets/icon_person_login.svg" class="name"></md-icon>
-					<input ng-model="user.name" type="text" placeholder="Name" ng-required="true">
+					<input ng-model="user.email" type="email" placeholder="Email" ng-required="true">
 				</md-input-container>
 				<md-input-container class="md-block">
 					<!-- Use floating placeholder instead of label -->
@@ -19,11 +19,15 @@
 			</form>
 		</md-content>
 		<div class="button-register-login">
-			<button class="button button-clear button-full icon-right ion-social-facebook button-register" ng-click="loginFacebook()">Enter with facebook</button>
+            <button class="button button-clear button-full icon-right ion-social-facebook button-register" ng-click="loginFacebook()">
+                Enter with facebook
+            </button>
+            <button ng-click="register()">Create account</button>
+            <!--  <button ng-click="logout()" >Logout </button> -->
         </div>
-
+        <!--
         <button ng-click="logout()" >  Logout </button>
-
+        -->
 		<!--
 		<h3>Page 1</h3>
 		<button class="button button-dark" ui-sref="home">

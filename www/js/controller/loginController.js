@@ -1,6 +1,6 @@
 angular.module('yummyword.loginController',[])
 
-.controller('LoginController',function($scope,$state,Auth){
+.controller('LoginController',function($scope,$state,Auth,$mdDialog){
 
 	//#5ceaf9
 	//rgb(92,234,2249)
@@ -8,8 +8,75 @@ angular.module('yummyword.loginController',[])
 	$scope.user = {};
 
 	$scope.login = function(){
-		$state.go('home');
+        console.log("Intenta loguear");
+        Auth.$authWithPassword({
+            "email": $scope.user.email,
+            "password": $scope.user.password
+        }).then(function(user) {
+            //Success callback
+            console.log('Authentication successful');
+            console.log(user);
+      		$state.go('home');
+        }, function(error) {
+            //Failure callback
+            console.log('Authentication failure');
+            switch (error.code) {
+                case "INVALID_USER":
+                    $mdDialog.show({
+                        clickOutsideToClose: true,
+                        scope: $scope,        // use parent scope in template
+                        openFrom : '#register-button',
+                        // or an element
+                        closeTo : angular.element(document.querySelector('#register-button')),
+                        preserveScope: true,  // do not forget this if use parent scope
+                        template:'<md-dialog>' +
+                        ' <h3>You password or email are wrong.</h3>'+
+                        '  <md-dialog-actions>' +
+                        '    <md-button ng-click="closeDialog()" class="md-primary">' +
+                        '     Ok!' +
+                        '    </md-button>' +
+                        '  </md-dialog-actions>' +
+                        '</md-dialog>',
+                         controller: function DialogController($scope, $mdDialog) {
+                            $scope.closeDialog = function() {
+                                $mdDialog.hide();
+                            };
+                        }
+                    });
+                break;
+                default:
+                    $mdDialog.show({
+                        clickOutsideToClose: true,
+                        scope: $scope,        // use parent scope in template
+                        openFrom : '#register-button',
+                        // or an element
+                        closeTo : angular.element(document.querySelector('#register-button')),
+                        preserveScope: true,  // do not forget this if use parent scope
+                        template:'<md-dialog>' +
+                        ' <h3>Ups!!! something is wrong :(."</h3>'+
+                        '  <md-dialog-actions>' +
+                        '    <md-button ng-click="closeDialog()" class="md-primary">' +
+                        '     Ok!' +
+                        '    </md-button>' +
+                        '  </md-dialog-actions>' +
+                        '</md-dialog>',
+                        controller: function DialogController($scope, $mdDialog) {
+                            $scope.closeDialog = function() {
+                                $mdDialog.hide();
+                            };
+                        }
+                    });
+                console.log(error.code);
+            }
+        });
 	};
+
+    $scope.register = function(){
+        console.log("################ Enter register ################# ");
+        $state.go('register');
+    };
+
+    console.log("intenta cargar");
 
     var save_user = function(objLogin){
         var userid = objLogin.userid;
@@ -31,6 +98,7 @@ angular.module('yummyword.loginController',[])
     };
 
 	$scope.loginFacebook = function() {
+        console.log("Login trata de traer datos de facebook");
 		Auth.$authWithOAuthRedirect("facebook").then(function(authData) {
 			// User successfully logged in
 			$scope.authData = authData; // This will display the user's name in our view
@@ -54,10 +122,11 @@ angular.module('yummyword.loginController',[])
                 login: true,
             };
             console.log("llama a la funcion save_user");
+            console.log(authData);
             console.log(objLogin);
             save_user(objLogin);
 
-  //          $state.go('home');
+            $state.go('home');
 
 		}).catch(function(error) {
 			if (error.code === "TRANSPORT_UNAVAILABLE") {

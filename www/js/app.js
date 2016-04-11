@@ -5,7 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('yummyword', ['ionic','firebase','ngMaterial','yummyword.services',
 			   'yummyword.loginController','yummyword.homeController','yummyword.directives',
-               'yummyword.searchController','yummyword.gameController'])
+               'yummyword.searchController','yummyword.gameController',
+               'yummyword.registerController'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -48,7 +49,7 @@ angular.module('yummyword', ['ionic','firebase','ngMaterial','yummyword.services
 		.state('register',{
 			url : '/register',
 			templateUrl : 'template/user/register.html',
-			controller : 'LoginController'
+			controller : 'RegisterController'
 		})
 
 		.state('home',{
