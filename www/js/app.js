@@ -6,7 +6,7 @@
 angular.module('yummyword', ['ionic','firebase','ngMaterial','yummyword.services',
 			   'yummyword.loginController','yummyword.homeController','yummyword.directives',
                'yummyword.searchController','yummyword.gameController',
-               'yummyword.registerController'])
+               'yummyword.registerController','yummyword.saveWordsController'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -69,7 +69,18 @@ angular.module('yummyword', ['ionic','firebase','ngMaterial','yummyword.services
             templateUrl : 'template/user/game.html',
             controller : 'GameController'
         })
+			.state('saveWords',{
+				url: '/saveWords',
+				templateUrl: 'template/user/saveWords.html',
+				controller: 'SaveWordsController'
+			})
 
+			.state('detailWord',{
+				url : '/detailWord',
+				params:{detail:null},
+				templateUrl :'template/user/detailWord.html',
+				controller : 'DetailWordController'
+			})
 		;
 
 	$urlRouterProvider.otherwise('/login');

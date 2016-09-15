@@ -1,7 +1,7 @@
 angular.module('yummyword.searchController',[])
 
 .controller('SearchController',function($scope,$state,Auth,Dictionary,$ionicLoading,
-										$ionicPopup,$http,$ionicHistory,Words){
+										$ionicPopup,$http,$ionicHistory,Words,MyWords){
     $scope.user = {};
 
     console.log("======= enter with register =========");
@@ -41,7 +41,7 @@ angular.module('yummyword.searchController',[])
 				maxWidth: 0,
 				showDelay: 0
 			});
-			// pedimos los comentarios al servidor 
+			// pedimos los comentarios al servidor
 			var options={
 				method:"GET",
 				url: Dictionary.definitionWord($scope.user.word),
@@ -66,18 +66,34 @@ angular.module('yummyword.searchController',[])
 			});
 		}
 	};
+	userHaveWord=function(idUser,word){
+			var wordArray = [];
+		  MyWords.retrieving(idUser,wordArray);
+			var index=0;
+			var thereIs=false;
+			var leng=wordArray.length;
+			console.log(wordArray);
+			while (!thereIs && index < leng) {
+				thereIs = wordArray[index].word == word;
+				index++;
+			}
+			console.log(thereIs);
+			return thereIs;
+	};
 	$scope.saveWord = function(){
-		if($scope.user.word !== "" && $scope.user.word !== undefined){
+		if($scope.user.word !== "" && $scope.user.word !== undefined && $scope.user.definition!== undefined){
             console.log("Trying to connect");
             console.log(Words);
-
+					if(!userHaveWord($scope.authData.uid,$scope.user.word)){
             Words.$add({
                 user: $scope.authData.uid,
                 word: $scope.user.word,
                 definition: $scope.user.definition,
                 timestamp: Firebase.ServerValue.TIMESTAMP
             });
-			console.log("save a word");
+							console.log("save a word");
+					}else{console.log("No save ,so there is word" );}
+
 		}
 	};
 });

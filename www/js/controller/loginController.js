@@ -9,6 +9,7 @@ angular.module('yummyword.loginController',[])
 
 	$scope.login = function(){
         console.log("Intenta loguear");
+				console.log($scope.user);
         Auth.$authWithPassword({
             "email": $scope.user.email,
             "password": $scope.user.password
@@ -20,6 +21,7 @@ angular.module('yummyword.loginController',[])
         }, function(error) {
             //Failure callback
             console.log('Authentication failure');
+						console.log(error);
             switch (error.code) {
                 case "INVALID_USER":
                     $mdDialog.show({

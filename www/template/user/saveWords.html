@@ -1,0 +1,23 @@
+<ion-view class="back-color">
+  <ion-header-bar class="back-color">
+    <div class="buttons">  
+      <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="goBack()"></a>
+    </div>
+    <h1 class="title">My words</h1>
+    <div class="buttons">
+      <button class="button  button-icon icon ion-ios-minus-outline" ng-click="showDelete = !showDelete;"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content class="has-header">
+    <ion-list show-delete="showDelete" class="back-color">
+      <ion-item class="back-color item-remove-animate item-icon-right" ng-repeat = "saveWord in myWords" ng-click="goDatailWord(saveWord)">
+        
+        <h2> {{saveWord.word}} </h2>
+        <ion-delete-button class="ion-minus-circled back-color"
+                       ng-click="deleteWord(saveWord.word)">
+        </ion-delete-button>
+         <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

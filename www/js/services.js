@@ -23,6 +23,40 @@ angular.module('yummyword.services',[])
             return baseUrl+word+"/audio?useCanonical=false&limit=1&api_key="+key;
         }
     };
-});
+})
+.factory("MyWords",function(){
 
+	var ref = new Firebase("https://yummyword.firebaseio.com/words");
+	var wordSnapshot=null;
+	return {
+		retrieving:function(IdUser,wordArray){
 
+			ref.on('value',function(snapshot){
+				snapshot.forEach(function(childSnapshot) {
+					 wordSnapshot = childSnapshot.val();
+					if(wordSnapshot.user==IdUser){
+						wordArray.push({
+							definitions:wordSnapshot.definition,
+							word:wordSnapshot.word,
+						});
+					}
+				});
+			});
+
+		},
+		deleteWord:function(IdUser,word){
+			ref.on('value',function(data){
+				data.forEach(function(childWord){
+					wordSnapshot=childWord.val();
+					if(wordSnapshot.user==IdUser && wordSnapshot.word==word){
+						var deleteWordRef= new Firebase("https://yummyword.firebaseio.com/words/"+childWord.key());
+					//	console.log(wordSnapshot);
+					//	console.log(childWord.key());
+						deleteWordRef.remove();
+					}
+				});
+			});
+		}
+	};
+})
+;
